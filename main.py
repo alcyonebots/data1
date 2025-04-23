@@ -11,7 +11,7 @@ API_HASH = input(Fore.CYAN + "Enter your API HASH: ")
 SESSION_NAME = "users_session"
 
 # == Channel where to send saved users ==
-CHANNEL_ID = -1002454508589  # <-- Yaha apne PRIVATE CHANNEL ka ID daalna (with -100)
+CHANNEL_ID = -1002454508589  # <-- Private channel ID
 
 # == Allowed groups to monitor ==
 ALLOWED_GROUP_LINKS = [
@@ -51,16 +51,18 @@ async def get_group_ids():
         try:
             entity = await client.get_entity(link)
             group_ids.append(entity.id)
-            print(Fore.GREEN + f"✅ Joined group: {link}")
+            print(Fore.GREEN + f"✅ Found group: {link}")
         except Exception as e:
             print(Fore.RED + f"⚠️ Failed to fetch group {link}: {e}")
 
 @client.on(events.NewMessage)
 async def handler(event):
-    if not event.is_group:
-        return
+    if event.is_private:
+        return  # ignore private messages
 
-    if event.chat_id not in group_ids:
+    chat_id = event.chat_id
+
+    if chat_id not in group_ids:
         return
 
     sender = await event.get_sender()
