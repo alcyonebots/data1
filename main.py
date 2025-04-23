@@ -8,16 +8,19 @@ init(autoreset=True)
 # == Your API credentials ==
 API_ID = int(input(Fore.CYAN + "Enter your API ID: "))
 API_HASH = input(Fore.CYAN + "Enter your API HASH: ")
-SESSION_NAME = "user_session"
+SESSION_NAME = "users_session"
 
 # == Channel where to send saved users ==
-CHANNEL_ID = -1001234567890  # <-- Yaha apne PRIVATE CHANNEL ka ID daalna (with -100)
+CHANNEL_ID = -1002454508589  # <-- Yaha apne PRIVATE CHANNEL ka ID daalna (with -100)
 
 # == Allowed groups to monitor ==
 ALLOWED_GROUP_LINKS = [
-    "",   # <-- Apne groups ka link daal
-    "",
-    ""
+    "https://t.me/+kLjsw-WqpuFkZjM1",
+    "https://t.me/BUZZ_IGCC_CHATS",
+    "https://t.me/+F9Pp5_gHDB9jYzQ1",
+    "https://t.me/BuzzEscrowe",
+    "https://t.me/+mcMK_XK6J4M1NDE1",
+    "https://t.me/+3khxeH9j6pViMjU9",
 ]
 
 # == Save users file ==
